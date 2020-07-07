@@ -26,7 +26,7 @@ export default class Table extends Component {
 
 	handleRemove = (event) => {
 		const newData = this.props.data.filter(d => {
-			return d.name != event.target.name
+			return d.name !== event.target.name
 		})
 		this.props.updateData(newData)
 	}
@@ -34,7 +34,7 @@ export default class Table extends Component {
 	renderRows() {
 		return (
 			this.props.data.map(student => {
-				const background = (student.name == this.props.activeName) ? "grey" : "white"
+				const background = (student.name === this.props.activeName) ? "grey" : "white"
 				return (
 					<Row
 						key={student.name}

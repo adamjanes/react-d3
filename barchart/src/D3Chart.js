@@ -45,7 +45,7 @@ export default class D3Chart {
 	update(gender) {
 		const vis = this
 
-		vis.data = (gender == "men") ? vis.menData : vis.womenData;
+		vis.data = (gender === "men") ? vis.menData : vis.womenData;
 		vis.xLabel.text(`The world's tallest ${gender}`)
 
 		const y = d3.scaleLinear()
@@ -93,7 +93,5 @@ export default class D3Chart {
 			.transition().duration(500)
 				.attr("height", d => HEIGHT - y(d.height))
 				.attr("y", d => y(d.height))
-
-			console.log(rects)
 	}
 }

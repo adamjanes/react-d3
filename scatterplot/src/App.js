@@ -14,7 +14,7 @@ class App extends Component {
     activeName: null
   }
 
-  componentWillMount() {
+  componentDidMount() {
     json("https://udemy-react-d3.firebaseio.com/children.json")
       .then(data => this.setState({ data }))
       .catch(error => console.log(error));
@@ -25,7 +25,7 @@ class App extends Component {
   updateData = (data) => this.setState({ data })
 
   renderChart() {
-    if (this.state.data.length == 0) {
+    if (this.state.data.length === 0) {
       return "No data yet"
     }
     return <ChartWrapper data={this.state.data} updateName={this.updateName} />
